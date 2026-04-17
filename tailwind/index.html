@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lens & Light | Photography Hobby Showcase</title>
+    <link rel="stylesheet" href="dist/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Hero Section - Dark gradient background */
+        .hero-background {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 50%, #1A1A1A 100%);
+        }
+        /* Interactive Cards - Hover lift effect with shadow */
+        .card-interactive {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-interactive:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        }
+        /* Animated Text - Gradient shine effect */
+        .text-shine {
+            background: linear-gradient(90deg, #C9A87C, #F5E6D3, #C9A87C);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine-animation 3s linear infinite;
+        }
+        @keyframes shine-animation {
+            to { background-position: 200% center; }
+        }
+        /* Fade In Animation */
+        .animation-animation-fade-in {
+            animation: animation-fade-in-animation 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes animation-fade-in-animation {
+            to { opacity: 1; }
+        }
+        /* Animation Delays for staggered effects */
+        .animation-delay-1 { animation-delay: 0.1s; }
+        .animation-delay-2 { animation-delay: 0.2s; }
+        .animation-delay-3 { animation-delay: 0.3s; }
+        .animation-delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body class="font-body bg-warm text-dark">
+    <!-- Navigation -->
+    <!-- ADD/REMOVE TAILWIND CLASS: theme-toggle, bg-warm/bg-dark-mode -->
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-md transition-colors duration-300" id="mainNav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <div class="flex items-center">
+                    <span class="text-accent font-display text-xl sm:text-2xl font-bold">Lens & Light</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-gray-300 hover:text-accent transition-colors">About</a>
+                    <a href="#gallery" class="text-gray-300 hover:text-accent transition-colors">Gallery</a>
+                    <a href="#gear" class="text-gray-300 hover:text-accent transition-colors">Gear</a>
+                    <a href="#contact" class="text-gray-300 hover:text-accent transition-colors">Contact</a>
+                    <!-- EVENT LISTENER: Click for theme toggle -->
+                    <button id="themeToggle" class="text-gray-300 hover:text-accent transition-colors" aria-label="Toggle theme">
+                        <svg id="themeIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button id="themeToggleMobile" class="md:hidden text-gray-300" aria-label="Toggle theme">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
+                    <button id="menuBtn" class="md:hidden text-gray-300" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-dark/95 backdrop-blur-md">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#about" class="block text-gray-300 hover:text-accent">About</a>
+                <a href="#gallery" class="block text-gray-300 hover:text-accent">Gallery</a>
+                <a href="#gear" class="block text-gray-300 hover:text-accent">Gear</a>
+                <a href="#contact" class="block text-gray-300 hover:text-accent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-background min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-accent uppercase tracking-[0.3em] text-sm sm:text-base mb-4 animation-fade-in">Welcome to my world</p>
+            <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-warm mb-6 animation-fade-in animation-delay-1">
+                Photography
+            </h1>
+            <p class="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-8 animation-fade-in animation-delay-2">
+                Capturing moments, one frame at a time. Exploring the world through my lens.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animation-fade-in animation-delay-3">
+                <a href="#gallery" class="bg-accent text-dark px-8 py-3 rounded-full font-medium hover:bg-white transition-colors">
+                    View Gallery
+                </a>
+                <a href="#about" class="border border-accent text-accent px-8 py-3 rounded-full font-medium hover:bg-accent hover:text-dark transition-colors">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 sm:py-24 bg-warm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4">My Passion</p>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-dark mb-6">
+                        Why I <span class="text-accent">Photograph</span>
+                    </h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Photography is more than just clicking a button—it's about preserving emotions, telling stories, and seeing the world from unique perspectives. Each photograph holds a memory, a feeling, a moment that deserves to be immortalized.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Whether it's the golden hour light kissing a landscape, the candid laughter of loved ones, or the intricate details often overlooked—I'm constantly seeking beauty in the ordinary.
+                    </p>
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <p class="font-display text-3xl font-bold text-accent">5+</p>
+                            <p class="text-sm text-gray-600">Years Experience</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="font-display text-3xl font-bold text-accent">2K+</p>
+                            <p class="text-sm text-gray-600">Photos Taken</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="font-display text-3xl font-bold text-accent">50+</p>
+                            <p class="text-sm text-gray-600">Sessions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 relative">
+                    <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&q=80" 
+                             alt="Camera" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-accent p-6 rounded-xl shadow-lg hidden sm:block">
+                        <p class="font-display text-dark font-bold text-lg">📷</p>
+                        <p class="text-dark text-sm">Capturing Life</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <!-- DYNAMIC CONTENT: Gallery with filter categories -->
+    <section id="gallery" class="py-16 sm:py-24 bg-dark" id="gallerySection">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4">Portfolio</p>
+                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-warm mb-4">
+                    Featured <span class="text-shine">Work</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-6">A curated selection of my favorite shots</p>
+                
+                <!-- FILTER BUTTONS: Event listeners for filtering -->
+                <div class="flex flex-wrap justify-center gap-3 mb-8" id="filterButtons">
+                    <button class="filter-btn bg-accent text-dark px-4 py-2 rounded-full text-sm font-medium transition-all active" data-filter="all">All</button>
+                    <button class="filter-btn bg-transparent border border-gray-600 text-gray-400 px-4 py-2 rounded-full text-sm font-medium hover:border-accent hover:text-accent transition-all" data-filter="landscape">Landscape</button>
+                    <button class="filter-btn bg-transparent border border-gray-600 text-gray-400 px-4 py-2 rounded-full text-sm font-medium hover:border-accent hover:text-accent transition-all" data-filter="portrait">Portrait</button>
+                    <button class="filter-btn bg-transparent border border-gray-600 text-gray-400 px-4 py-2 rounded-full text-sm font-medium hover:border-accent hover:text-accent transition-all" data-filter="nature">Nature</button>
+                    <button class="filter-btn bg-transparent border border-gray-600 text-gray-400 px-4 py-2 rounded-full text-sm font-medium hover:border-accent hover:text-accent transition-all" data-filter="events">Events</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+                <!-- TEMPLATE LITERAL: Dynamic gallery items with data-category -->
+                <div class="card-interactive rounded-xl overflow-hidden cursor-pointer group" data-category="landscape">
+                    <div class="aspect-[4/5] relative">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80" 
+                             alt="Landscape" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="absolute bottom-4 left-4">
+                                <p class="text-white font-medium">Mountain Sunrise</p>
+                                <p class="text-gray-300 text-sm">Landscape</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-interactive rounded-xl overflow-hidden cursor-pointer group sm:mt-12" data-category="portrait">
+                    <div class="aspect-[4/5] relative">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80" 
+                             alt="Portrait" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="absolute bottom-4 left-4">
+                                <p class="text-white font-medium">Golden Hour Portrait</p>
+                                <p class="text-gray-300 text-sm">Portrait</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-interactive rounded-xl overflow-hidden cursor-pointer group" data-category="events">
+                    <div class="aspect-[4/5] relative">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80" 
+                             alt="Concert" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="absolute bottom-4 left-4">
+                                <p class="text-white font-medium">Live Concert</p>
+                                <p class="text-gray-300 text-sm">Events</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-interactive rounded-xl overflow-hidden cursor-pointer group" data-category="nature">
+                    <div class="aspect-[4/5] relative">
+                        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=400&q=80" 
+                             alt="Nature" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="absolute bottom-4 left-4">
+                                <p class="text-white font-medium">Forest Path</p>
+                                <p class="text-gray-300 text-sm">Nature</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-interactive rounded-xl overflow-hidden cursor-pointer group sm:mt-12" data-category="landscape">
+                    <div class="aspect-[4/5] relative">
+                        <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=400&q=80" 
+                             alt="Street" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="absolute bottom-4 left-4">
+                                <p class="text-white font-medium">City Lights</p>
+                                <p class="text-gray-300 text-sm">Street</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-interactive rounded-xl overflow-hidden cursor-pointer group" data-category="portrait">
+                    <div class="aspect-[4/5] relative">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80" 
+                             alt="Portrait" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="absolute bottom-4 left-4">
+                                <p class="text-white font-medium">Natural Light</p>
+                                <p class="text-gray-300 text-sm">Portrait</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gear Section -->
+    <section id="gear" class="py-16 sm:py-24 bg-warm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4">Equipment</p>
+                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-dark mb-4">
+                    My <span class="text-accent">Gear</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Tools that help bring my vision to life</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-lg card-interactive">
+                    <div class="text-4xl mb-4">📸</div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">Camera</h3>
+                    <p class="text-gray-600 text-sm">Sony A7 IV</p>
+                    <p class="text-gray-500 text-xs mt-1">Full Frame Mirrorless</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg card-interactive">
+                    <div class="text-4xl mb-4">🔭</div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">Primary Lens</h3>
+                    <p class="text-gray-600 text-sm">Sony 24-70mm f/2.8 GM</p>
+                    <p class="text-gray-500 text-xs mt-1">Versatile Zoom</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg card-interactive">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">Prime Lens</h3>
+                    <p class="text-gray-600 text-sm">Sony 85mm f/1.4 GM</p>
+                    <p class="text-gray-500 text-xs mt-1">Portrait King</p>
+                </div>
+                                <div class="bg-white rounded-xl p-6 shadow-lg card-interactive">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">Prime Lens</h3>
+                    <p class="text-gray-600 text-sm">Sony 85mm f/1.4 GM</p>
+                    <p class="text-gray-500 text-xs mt-1">Portrait King</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="py-16 sm:py-24 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4">Tips & Tricks</p>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-warm mb-6">
+                        Photography <span class="text-shine">Tips</span>
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
+                                <span class="text-accent font-bold">1</span>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-warm">Light is Everything</h4>
+                                <p class="text-gray-400 text-sm">Shoot during golden hour for soft, warm light that flatters any subject.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
+                                <span class="text-accent font-bold">2</span>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-warm">Rule of Thirds</h4>
+                                <p class="text-gray-400 text-sm">Position your subject at intersection points for more dynamic compositions.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
+                                <span class="text-accent font-bold">3</span>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-warm">Practice Daily</h4>
+                                <p class="text-gray-400 text-sm">Take your camera everywhere. The best shots come from being ready.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1500634245200-e5245c7574ef?w=300&q=80" 
+                         alt="Photo tip" class="rounded-xl shadow-lg card-interactive">
+                    <img src="https://images.unsplash.com/photo-1495745966610-2a67f2297e5e?w=300&q=80" 
+                         alt="Photo tip" class="rounded-xl shadow-lg card-interactive mt-8">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=300&q=80" 
+                         alt="Photo tip" class="rounded-xl shadow-lg card-interactive">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" 
+                         alt="Photo tip" class="rounded-xl shadow-lg card-interactive mt-8">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=300&q=80" 
+                         alt="Photo tip" class="rounded-xl shadow-lg card-interactive">     
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 sm:py-24 bg-warm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4">Get in Touch</p>
+                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-dark mb-4">
+                    Let's <span class="text-accent">Connect</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions about photography or want to collaborate?</p>
+            </div>
+
+            <div class="max-w-xl mx-auto">
+                <form class="space-y-6" id="contactForm">
+                    <div>
+                        <input type="text" id="nameInput" placeholder="Your Name" 
+                               class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all">
+                    </div>
+                    <div>
+                        <input type="email" id="emailInput" placeholder="Your Email" 
+                               class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all">
+                    </div>
+                    <div>
+                        <textarea id="messageInput" placeholder="Your Message" rows="5" 
+                                  class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-dark text-warm py-4 rounded-xl font-medium hover:bg-accent hover:text-dark transition-colors">
+                        Send Message
+                    </button>
+                </form>
+
+                <div class="flex justify-center gap-8 mt-12">
+                    <a href="#" class="text-gray-500 hover:text-accent transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-accent transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-accent transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-500 text-sm">
+                © 2026 Lens & Light. Crafted with ❤️ for photography lovers.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // 1. DOM SELECTION - Using getElementById and querySelector
+        // ============================================
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const themeToggle = document.getElementById('themeToggle');
+        const themeToggleMobile = document.getElementById('themeToggleMobile');
+        const themeIcon = document.getElementById('themeIcon');
+        const gallerySection = document.getElementById('gallerySection');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryGrid = document.getElementById('galleryGrid');
+        const galleryItems = document.querySelectorAll('[data-category]');
+        const contactForm = document.getElementById('contactForm');
+
+        // ============================================
+        // 5. LOG CHECK - Console log with Full Name and Student ID
+        // ============================================
+        const studentName = "Oliver Cayaban"; // REPLACE with your Full Name
+        const studentID = "12345678";     // REPLACE with your Student ID
+
+        window.addEventListener('load', () => {
+            console.log(`Welcome to Lens & Light Portfolio!`);
+            console.log(`Student: ${studentName}`);
+            console.log(`Student ID: ${studentID}`);
+            console.log(`Page loaded successfully at: ${new Date().toLocaleString()}`);
+        });
+
+        // ============================================
+        // 2. EVENT LISTENERS - Mobile Menu Toggle
+        // ============================================
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                mobileMenu.classList.add('hidden');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ============================================
+        // 3. TAILWIND CLASS MANIPULATION - Theme Toggle
+        // 6. COLOR SHIFT - Change background color dynamically
+        // ============================================
+        let isDarkMode = true;
+        
+        // DOM elements for theme change
+        const body = document.body;
+        const aboutSection = document.getElementById('about');
+        const gearSection = document.getElementById('gear');
+        const contactSection = document.getElementById('contact');
+        const footer = document.querySelector('footer');
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            
+            // Change theme icon
+            if (isDarkMode) {
+                themeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>';
+                
+                // Apply Dark Mode Classes
+                body.classList.remove('bg-gray-100');
+                body.classList.add('bg-warm');
+                
+                // Update sections to dark theme
+                if (aboutSection) {
+                    aboutSection.classList.remove('bg-white');
+                    aboutSection.classList.add('bg-warm');
+                }
+                if (gearSection) {
+                    gearSection.classList.remove('bg-white');
+                    gearSection.classList.add('bg-warm');
+                }
+                if (contactSection) {
+                    contactSection.classList.remove('bg-white');
+                    contactSection.classList.add('bg-warm');
+                }
+            } else {
+                themeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>';
+                
+                // Apply Light Mode Classes
+                body.classList.remove('bg-warm');
+                body.classList.add('bg-gray-100');
+                
+                // Update sections to light theme
+                if (aboutSection) {
+                    aboutSection.classList.remove('bg-warm');
+                    aboutSection.classList.add('bg-white');
+                }
+                if (gearSection) {
+                    gearSection.classList.remove('bg-warm');
+                    gearSection.classList.add('bg-white');
+                }
+                if (contactSection) {
+                    contactSection.classList.remove('bg-warm');
+                    contactSection.classList.add('bg-white');
+                }
+            }
+            
+            console.log(`Theme changed to: ${isDarkMode ? 'Dark' : 'Light'} mode`);
+        }
+
+        // Event listeners for theme toggle
+        themeToggle.addEventListener('click', toggleTheme);
+
+        themeToggleMobile.addEventListener('click', toggleTheme);
+
+        // ============================================
+        // 4. TEMPLATE LITERALS - Dynamic Gallery Filtering
+        // ============================================
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 3. TAILWIND CLASS MANIPULATION - Update filter buttons
+                filterButtons.forEach(button => {
+                    button.classList.remove('bg-accent', 'text-dark');
+                    button.classList.add('bg-transparent', 'border', 'border-gray-600', 'text-gray-400');
+                });
+                
+                // Add active state to clicked button
+                this.classList.remove('bg-transparent', 'border', 'border-gray-600', 'text-gray-400');
+                this.classList.add('bg-accent', 'text-dark');
+
+                const filter = this.getAttribute('data-filter');
+                
+                // TEMPLATE LITERAL - Dynamic filtering message
+                const message = filter === 'all' 
+                    ? `Showing all ${galleryItems.length} photos` 
+                    : `Filtering by: ${filter}`;
+                console.log(message);
+
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        item.classList.remove('hidden');
+                        item.style.display = 'block';
+                    } else {
+                        item.classList.add('hidden');
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // ============================================
+        // 2. EVENT LISTENERS - Form Submission
+        // ============================================
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values using DOM selection
+            const name = document.getElementById('nameInput').value;
+            const email = document.getElementById('emailInput').value;
+            const message = document.getElementById('messageInput').value;
+            
+            // TEMPLATE LITERAL - Dynamic form submission message
+            const successMessage = `
+                =========================================
+                📧 Form Submitted Successfully!
+                =========================================
+                Name: ${name}
+                Email: ${email}
+                Message: ${message.substring(0, 50)}${message.length > 50 ? '...' : ''}
+                =========================================
+            `;
+            
+            console.log(successMessage);
+            alert('Thank you for your message! Check the console for details.');
+            
+            // Reset form
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>

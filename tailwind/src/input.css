@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --color-warm: #F5E6D3;
+  --color-accent: #C9A87C;
+  --color-dark: #1A1A1A;
+}
+
+/* Hero Section - Dark gradient background */
+.hero-background {
+    background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 50%, #1A1A1A 100%);
+}
+
+/* Interactive Cards - Hover lift effect with shadow */
+.card-interactive {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-interactive:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+/* Animated Text - Gradient shine effect */
+.text-shine {
+    background: linear-gradient(90deg, #C9A87C, #F5E6D3, #C9A87C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shine-animation 3s linear infinite;
+}
+@keyframes shine-animation {
+    to { background-position: 200% center; }
+}
+
+/* Fade In Animation */
+.animation-fade-in {
+    animation: fade-in-animation 0.8s ease-out forwards;
+    opacity: 0;
+}
+@keyframes fade-in-animation {
+    to { opacity: 1; }
+}
+
+/* Animation Delays for staggered effects */
+.animation-delay-1 { animation-delay: 0.1s; }
+.animation-delay-2 { animation-delay: 0.2s; }
+.animation-delay-3 { animation-delay: 0.3s; }
+.animation-delay-4 { animation-delay: 0.4s; }
